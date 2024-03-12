@@ -25,6 +25,8 @@ import { NavigationComponent } from './modules/navigation/navigation.component';
 import { TableComponent } from './modules/table/table.component';
 import { FormComponent } from './modules/form/form.component';
 import { TreeComponent } from './modules/tree/tree.component';
+import { CategoriasService } from './core/service/categorias.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,9 +57,11 @@ import { TreeComponent } from './modules/tree/tree.component';
     MatRadioModule,
     ReactiveFormsModule,
     MatTreeModule,
+    HttpClientModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    CategoriasService
   ],
   bootstrap: [AppComponent]
 })
