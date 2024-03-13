@@ -3,21 +3,23 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, OnChanges, OnDestroy
 import { MatButtonModule } from '@angular/material/button';
 import { CategoriasService } from '../../../core/service/categorias.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoriasTableComponent } from './categorias-table/categorias-table.component';
 
 @Component({
-  selector: 'app-categorias',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    HttpClientModule
-  ],
-  providers: [
-    CategoriasService
-  ],
-  templateUrl: './categorias.component.html',
-  styleUrl: './categorias.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-categorias',
+    standalone: true,
+    providers: [
+        CategoriasService
+    ],
+    templateUrl: './categorias.component.html',
+    styleUrl: './categorias.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        HttpClientModule,
+        CategoriasTableComponent
+    ]
 })
 export class CategoriasComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges  {
   //declarar variables
