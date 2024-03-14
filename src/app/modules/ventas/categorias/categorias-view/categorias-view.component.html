@@ -1,1 +1,18 @@
-<p>categorias-view works!</p>
+<mat-card class="w-[800px] p-4">
+  <mat-card-header>
+    <mat-card-title>Categorias</mat-card-title>
+    <mat-card-subtitle>View Categoria</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="grid grid-cols-2 gap-4 mt-3">
+    <label><strong>Id:</strong> {{categoria.id_categoria}}</label>
+    <label><strong>Nombre:</strong> {{categoria.cat_nombre}}</label>
+    <label><strong>Descripcion:</strong> {{categoria.cat_descripcion}}</label>
+    <label><strong>Estado:</strong> {{categoria.cat_estado}}</label>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [mat-dialog-close]="false">Cancelar</button>
+    @if (operation == 3) {
+      <button mat-button color="primary" (click)="eliminarCategoria(categoria.id_categoria)">Eliminar</button>
+    }
+  </mat-card-actions>
+</mat-card>

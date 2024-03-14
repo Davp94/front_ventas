@@ -19,9 +19,9 @@ export class CategoriasService {
     return this._http.post(this.apiUrl, categoria);
   }
 
-  updateCategorias(id:number, categoria: any): Observable<any> {
-    const url = `${this.apiUrl}/${id}`;
-    return this._http.post(url, categoria);
+  updateCategorias(categoria: any): Observable<any> {
+    const url = `${this.apiUrl}/${categoria.id_categoria}`;
+    return this._http.put(url, categoria);
   }
 
   deleteCategoria(id: number): Observable<void> {

@@ -1,6 +1,6 @@
 <div class="mat-elevation-z8">
-  <button mat-raised-button color="primary" (click)="onClick()">
-    CLICK ME
+  <button mat-raised-button color="primary" (click)="openDialog(1)">
+    NUEVO REGISTRO
   </button>
   <table mat-table class="w-full" aria-label="Elements">
     <ng-container matColumnDef="id_categoria" >
@@ -9,7 +9,7 @@
     </ng-container>
     <ng-container matColumnDef="cat_nombre">
       <th mat-header-cell *matHeaderCellDef>Nombre</th>
-      <td mat-cell *matCellDef="let row">{{row.cat_nombre}}/td>
+      <td mat-cell *matCellDef="let row">{{row.cat_nombre}}</td>
     </ng-container>
     <ng-container matColumnDef="cat_descripcion">
       <th mat-header-cell *matHeaderCellDef>Descripcion</th>
@@ -22,13 +22,13 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
       <td mat-cell *matCellDef="let row">
-        <button mat-icon-button color="accent" (click)="openDialog(2)">
+        <button mat-icon-button color="accent" (click)="openDialog(2, row)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button color="accent" (click)="openDialog(4)">
-          <mat-icon>visible</mat-icon>
+        <button mat-icon-button color="accent" (click)="openDialog(4, row)">
+          <mat-icon>visibility</mat-icon>
         </button>
-        <button mat-icon-button color="accent" (click)="openDialog(3)">
+        <button mat-icon-button color="accent" (click)="openDialog(3, row)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>

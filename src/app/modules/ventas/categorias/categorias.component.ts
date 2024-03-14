@@ -13,7 +13,6 @@ import { CategoriasTableComponent } from './categorias-table/categorias-table.co
     ],
     templateUrl: './categorias.component.html',
     styleUrl: './categorias.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         CommonModule,
         MatButtonModule,
@@ -25,18 +24,13 @@ export class CategoriasComponent implements OnInit, AfterViewInit, OnDestroy, On
   //declarar variables
   saludo: string = 'HOLA MUNDO';
   isDisabled = false;
-  categorias: any = [];
-  constructor(private _categorias_service: CategoriasService) {}
+
+  constructor() {}
 
 
 
   // CICLO DE VIDA DE COMPONENTES
   ngOnInit(): void {
-    //TODO TRAER LISTA DE CATEGORIAS
-    console.log('EECUTING ON INIT');
-    this._categorias_service.getCategorias().subscribe(
-      (res) => {this.categorias = res}
-    );
   }
 
   ngOnChanges(changes: SimpleChanges): void {

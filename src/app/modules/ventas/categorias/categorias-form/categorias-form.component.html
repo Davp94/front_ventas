@@ -1,1 +1,31 @@
-<p>categorias-form works!</p>
+<mat-card class="w-[800px] p-4">
+  <mat-card-header>
+    <mat-card-title>Categorias</mat-card-title>
+    <mat-card-subtitle>Create-update Categoria</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="categoriasForm" class="grid grid-cols-2 gap-4 mt-3">
+      <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput type="text" formControlName="id_categoria"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput type="text" formControlName="cat_nombre"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput type="text" formControlName="cat_descripcion"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput type="text" formControlName="cat_estado" />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [mat-dialog-close]="false" color="secondary">Cancelar</button>
+    <button mat-button color="primary" (click)="onSubmit()" color="primary">Crear-Actualizar</button>
+  </mat-card-actions>
+</mat-card>
+
