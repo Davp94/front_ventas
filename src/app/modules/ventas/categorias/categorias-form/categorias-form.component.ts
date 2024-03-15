@@ -3,16 +3,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { CategoriasService } from '../../../../core/service/categorias.service';
-import { Operation } from '../../../../shared/operation.enum';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-categorias-form',
   templateUrl: './categorias-form.component.html',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatDialogModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule],
+  imports: [MatButtonModule, MatIconModule, MatDialogModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule],
   providers: [CategoriasService],
   styleUrl: './categorias-form.component.scss'
 })
