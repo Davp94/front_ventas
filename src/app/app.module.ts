@@ -27,7 +27,9 @@ import { FormComponent } from './modules/form/form.component';
 import { TreeComponent } from './modules/tree/tree.component';
 import { CategoriasService } from './core/service/categorias.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { LoginComponent } from './shared/login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AuthService } from './core/service/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavigationComponent,
     TableComponent,
     FormComponent,
-    TreeComponent
+    TreeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +61,12 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatTreeModule,
     HttpClientModule,
+    MatDialogModule,
   ],
   providers: [
     provideAnimationsAsync(),
-    CategoriasService
+    CategoriasService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

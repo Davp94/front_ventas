@@ -1,32 +1,53 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
+import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriasService {
 
   private apiUrl = `${environment.apiUrl}/categorias`;
+    constructor(private _http: HttpClient, private _authService: AuthService) {
+    }
 
-  constructor(private _http: HttpClient) { }
 
   getCategorias(): Observable<any> {
-    return this._http.get<any>(this.apiUrl);
+    const token = this._authService.getToken();
+    console.log("🚀 ~ CategoriasService ~ getCategorias ~ token:", token)
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this._authService.getToken()}`
+    );
+
+    return this._http.get<any>(this.apiUrl, {headers});
   }
 
   createCategorias(categoria: any): Observable<any> {
-    return this._http.post(this.apiUrl, categoria);
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this._authService.getToken()}`
+    );
+    return this._http.post(this.apiUrl, categoria, {headers});
   }
 
   updateCategorias(categoria: any): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this._authService.getToken()}`
+    );
     const url = `${this.apiUrl}/${categoria.id_categoria}`;
-    return this._http.put(url, categoria);
+    return this._http.put(url, categoria, {headers});
   }
 
   deleteCategoria(id: number): Observable<void> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this._authService.getToken()}`
+    );
     const url = `${this.apiUrl}/${id}`;
-    return this._http.delete<void>(url);
+    return this._http.delete<void>(url, {headers});
   }
 
 }

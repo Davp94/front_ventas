@@ -4,9 +4,14 @@ import { FormComponent } from './modules/form/form.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { TableComponent } from './modules/table/table.component';
 import { CategoriasComponent } from './modules/ventas/categorias/categorias.component';
+import { LoginComponent } from './shared/login/login.component';
 
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'formularios',
     component: FormComponent,
