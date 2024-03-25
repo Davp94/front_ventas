@@ -30,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './shared/login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthService } from './core/service/auth.service';
+import { MatTabsModule } from '@angular/material/tabs';
+import { VentasModule } from './modules/ventas/ventas.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +64,8 @@ import { AuthService } from './core/service/auth.service';
     MatTreeModule,
     HttpClientModule,
     MatDialogModule,
+    MatTabsModule,
+    VentasModule,
   ],
   providers: [
     provideAnimationsAsync(),
