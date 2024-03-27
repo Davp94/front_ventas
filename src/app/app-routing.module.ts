@@ -8,44 +8,39 @@ import { LoginComponent } from './shared/login/login.component';
 import { VentasComponent } from './modules/ventas/ventas.component';
 import { AlmacenComponent } from './modules/ventas/almacen/almacen.component';
 import { ProductosComponent } from './modules/ventas/productos/productos.component';
+import { HomeComponent } from './modules/home/home.component';
+import { authGuard } from './infraestructure/guards/auth.guard';
 
 
 const routes: Routes = [
   {
+    path: '',
+    canActivate: [authGuard],
+    component: HomeComponent,
+    children: [
+      {
+        path: 'formularios',
+        component: FormComponent,
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
+      {
+        path: 'tabla',
+        component: TableComponent,
+      },
+      {
+        path: 'ventas',
+        canActivate: [authGuard],
+        loadChildren: () => import("./modules/ventas/ventas.module").then(m => m.VentasModule)
+      }
+    ]
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
-  {
-    path: 'formularios',
-    component: FormComponent,
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-  },
-  {
-    path: 'tabla',
-    component: TableComponent,
-  },
-  {
-    path: 'ventas',
-    component: VentasComponent,
-    children: [
-      {
-        path: 'productos',
-        component: ProductosComponent,
-      },
-      {
-        path: 'categorias',
-        component: CategoriasComponent,
-      },
-      {
-        path: 'almacen',
-        component: AlmacenComponent,
-      },
-    ]
-  }
-
 ];
 
 @NgModule({

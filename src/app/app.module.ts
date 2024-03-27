@@ -32,6 +32,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AuthService } from './core/service/auth.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { VentasModule } from './modules/ventas/ventas.module';
+import { HomeComponent } from './modules/home/home.component';
+import { AuthInterceptorProviders } from './core/interceptor/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { VentasModule } from './modules/ventas/ventas.module';
     TableComponent,
     FormComponent,
     TreeComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { VentasModule } from './modules/ventas/ventas.module';
     provideAnimationsAsync(),
     CategoriasService,
     AuthService,
+    AuthInterceptorProviders,
   ],
   bootstrap: [AppComponent]
 })

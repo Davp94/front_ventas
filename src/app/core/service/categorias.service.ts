@@ -15,13 +15,7 @@ export class CategoriasService {
 
   getCategorias(): Observable<any> {
     const token = this._authService.getToken();
-    console.log("🚀 ~ CategoriasService ~ getCategorias ~ token:", token)
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      `Bearer ${this._authService.getToken()}`
-    );
-
-    return this._http.get<any>(this.apiUrl, {headers});
+    return this._http.get<any>(this.apiUrl);
   }
 
   createCategorias(categoria: any): Observable<any> {

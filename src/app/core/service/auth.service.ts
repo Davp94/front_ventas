@@ -14,17 +14,18 @@ export class AuthService {
 
   login(credentials: LoginDto): Observable<any> {
     return this._http.post<any>(this.apiUrl, credentials, { observe: 'response' }).pipe(
-      map(response => this.token = response.headers.get('Authorization'))
+      map(response => {
+        this.token = response.headers.get('Authorization');
+        localStorage.setItem('token', String(response.headers.get('Authorization')))
+        return 'Login Success'
+      })
     );
   }
 
-  setToken(token: string){
-    console.log("🚀 ~ AuthService ~ setToken ~ token:", token)
-    this.token = token;
-  }
-
   getToken(): string | null {
-    console.log('token', this.token)
+    if(!this.token){
+      this.token = localStorage.getItem("token");
+    }
     return this.token;
   }
 
@@ -34,5 +35,6 @@ export class AuthService {
 
   logout(): void {
     this.token = null;
+    localStorage.removeItem("token");
   }
 }
