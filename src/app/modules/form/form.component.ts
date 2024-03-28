@@ -9,6 +9,10 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrl: './form.component.scss'
 })
 export class FormComponent {
+
+  greeting:string = "Hola Mundo";
+
+
   private fb = inject(FormBuilder);
   addressForm = this.fb.group({
     company: null,

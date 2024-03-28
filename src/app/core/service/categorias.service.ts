@@ -14,34 +14,24 @@ export class CategoriasService {
 
 
   getCategorias(): Observable<any> {
-    const token = this._authService.getToken();
     return this._http.get<any>(this.apiUrl);
   }
 
   createCategorias(categoria: any): Observable<any> {
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      `Bearer ${this._authService.getToken()}`
-    );
-    return this._http.post(this.apiUrl, categoria, {headers});
+
+    return this._http.post(this.apiUrl, categoria);
   }
 
   updateCategorias(categoria: any): Observable<any> {
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      `Bearer ${this._authService.getToken()}`
-    );
+
     const url = `${this.apiUrl}/${categoria.id_categoria}`;
-    return this._http.put(url, categoria, {headers});
+    return this._http.put(url, categoria);
   }
 
   deleteCategoria(id: number): Observable<void> {
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      `Bearer ${this._authService.getToken()}`
-    );
+
     const url = `${this.apiUrl}/${id}`;
-    return this._http.delete<void>(url, {headers});
+    return this._http.delete<void>(url);
   }
 
 }

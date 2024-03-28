@@ -1,3 +1,7 @@
+<div class="flex flex-col w-full">
+  <p>{{greeting | uppercase}}</p>
+  <p appHighlight>Text to be highlighted on mouse hover</p>
+</div>
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>

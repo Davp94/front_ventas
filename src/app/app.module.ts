@@ -34,6 +34,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { VentasModule } from './modules/ventas/ventas.module';
 import { HomeComponent } from './modules/home/home.component';
 import { AuthInterceptorProviders } from './core/interceptor/auth.interceptor';
+import { UppercasePipe } from './shared/pipes/uppercase.pipe';
+import { HighlightDirective } from './shared/directives/highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,9 @@ import { AuthInterceptorProviders } from './core/interceptor/auth.interceptor';
     FormComponent,
     TreeComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    UppercasePipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

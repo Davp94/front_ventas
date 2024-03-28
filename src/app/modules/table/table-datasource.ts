@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { Inject, inject } from '@angular/core';
+import { ProductosService } from '../../core/service/productos.service';
 
 // TODO: Replace this with your own data model type
 export interface TableItem {
@@ -44,8 +46,19 @@ export class TableDataSource extends DataSource<TableItem> {
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
+  productosService = inject(ProductosService);
   constructor() {
     super();
+    this.productosService.getProductos().subscribe({
+      next: (productos: any) => {
+        console.log("🚀 ~ TableDataSource ~ this.productosService.getProductos ~ productos:", productos)
+        this.data = productos.content;
+      },
+      error: (error: any) => {
+        console.log('Error al cargar las productos', error);
+      }
+    }
+    )
   }
 
   /**
